@@ -1,0 +1,4 @@
+<div class="alignCards">
+    <app-card *ngFor="let card of tableau.stock; let i = index" [card]="card" [i]="i" (notify)="cardClicked($event)">
+    </app-card>
+</div>

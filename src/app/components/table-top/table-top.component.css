@@ -1,0 +1,6 @@
+.alignTableaus{
+    display: flex;
+    width: 900px;
+    justify-content: space-between;
+    align-items: flex-start;
+}

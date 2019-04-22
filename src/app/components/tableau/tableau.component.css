@@ -1,0 +1,4 @@
+.alignCards{
+    display: flex;
+    flex-direction: column;
+}
