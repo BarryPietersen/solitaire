@@ -1,4 +1,5 @@
 export class Card {
+    
     public rank: Ranks;
     public suit: Suits;
     public isUpSided: boolean;
@@ -7,6 +8,10 @@ export class Card {
         this.suit = suit;
         this.rank = rank;
         this.isUpSided = false;
+    }
+
+    public flip(){
+        this.isUpSided = !this.isUpSided;
     }
 
     public toString(){

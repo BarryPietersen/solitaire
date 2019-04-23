@@ -1,8 +1,9 @@
 import { Card, Suits, Ranks } from '../types/card';
-import { Tableau } from 'src/app/types/tableau';
-import { Foundation } from 'src/app/types/foundation';
 
 export interface IStockable{
-    push(card: Card[]);
+
+    stock: Card[];
+    push(cards: Card[]): boolean;
     pop(card: Card);
+    select(card: Card): Card[];
 }
