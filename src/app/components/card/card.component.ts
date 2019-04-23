@@ -11,27 +11,27 @@ export class CardComponent implements OnInit {
   @Input() card: Card;
   @Input('i') index: number;
   @Output() notify: EventEmitter<Card> = new EventEmitter<Card>()
-  public image: string;
+  private face: string;
+  private back: string;
 
   constructor() {
   }
 
   ngOnInit() {
     this.index *= 25;
-    this.image = this.getImage();
+    this.face = this.getImage();
+    this.back = '../../assets/images/JPEG/blue_back.jpg'
   }
 
   onClick(){
     this.notify.emit(this.card);
   }
 
-  getImage(){
+  private getImage(){
     let path = '../../assets/images/JPEG/';
-
-    if(this.card.isUpSided === false) return `${path}blue_back.jpg`;
-
     let rank = this.card.rank === 0 || this.card.rank > 9 ?
      Ranks[this.card.rank][0] : (this.card.rank + 1).toString();
+
     return `${path}${rank}${Suits[this.card.suit][0]}.jpg`;
   }
 }

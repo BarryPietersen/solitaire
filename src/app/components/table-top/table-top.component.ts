@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { TableTop } from 'src/app/types/table-top';
-import { GameManager } from 'src/app/types/game-manager';
+import { EventManager } from 'src/app/types/event-manager';
 
 @Component({
   selector: 'app-table-top',
@@ -11,13 +11,13 @@ import { GameManager } from 'src/app/types/game-manager';
 export class TableTopComponent implements OnInit {
   
   public tableTop: TableTop;
-  public gameManager: GameManager;
+  public gameManager: EventManager;
 
   constructor() {
    }
 
   ngOnInit() {
     this.tableTop = new TableTop();
-    this.gameManager = new GameManager(this.tableTop);
+    this.gameManager = new EventManager(this.tableTop);
   }
 }

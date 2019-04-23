@@ -11,9 +11,10 @@ import { IClickedStockPile } from 'src/app/interfaces/event-data';
 })
 export class TableauComponent implements OnInit {
   @Input() tableau: Tableau;
-  @Output() notify: EventEmitter<IClickedStockPile> = new EventEmitter<IClickedStockPile>()
+  @Output() notify: EventEmitter<IClickedStockPile> = new EventEmitter<IClickedStockPile>();
   
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
