@@ -11,13 +11,13 @@ import { EventManager } from 'src/app/types/event-manager';
 export class TableTopComponent implements OnInit {
   
   public tableTop: TableTop;
-  public gameManager: EventManager;
+  public eventManager: EventManager;
 
   constructor() {
    }
 
   ngOnInit() {
     this.tableTop = new TableTop();
-    this.gameManager = new EventManager(this.tableTop);
+    this.eventManager = new EventManager(this.tableTop);
   }
 }

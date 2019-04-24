@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Selection } from 'src/app/types/selection';
+import { IClickedStockPile } from 'src/app/interfaces/event-data';
+import { Card } from 'src/app/types/card';
 
 @Component({
   selector: 'app-selection',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectionComponent implements OnInit {
 
+  @Input() selection: Selection;
+  @Output() notify: EventEmitter<IClickedStockPile> = new EventEmitter<IClickedStockPile>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  selectionClicked(card: Card) {
+    if(card.isUpSided) {
+      this.notify.emit({ card: card, stockPile: this.selection });
+    }
+  }
 }

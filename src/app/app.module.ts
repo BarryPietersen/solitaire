@@ -6,8 +6,8 @@ import { CardComponent } from './components/card/card.component';
 import { TableTopComponent } from './components/table-top/table-top.component';
 import { TableauComponent } from './components/tableau/tableau.component';
 import { FoundationComponent } from './components/foundation/foundation.component';
-import { StockPileComponent } from './components/stock-pile/stock-pile.component';
 import { SelectionComponent } from './components/selection/selection.component';
+import { DeckComponent } from './components/deck/deck.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,8 @@ import { SelectionComponent } from './components/selection/selection.component';
     TableTopComponent,
     TableauComponent,
     FoundationComponent,
-    StockPileComponent,
-    SelectionComponent
+    SelectionComponent,
+    DeckComponent
   ],
   imports: [
     BrowserModule

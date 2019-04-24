@@ -9,13 +9,9 @@ import { Card, Suits, Ranks } from './types/card';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'solitaire';
-  // tableau = new Tableau();
-  constructor(){
-    // this.tableau.stock.push(new Card(Suits.HEARTS, Ranks.ACE))
-    // this.tableau.stock.push(new Card(Suits.CLUBS, Ranks.JACK))
-    // this.tableau.stock.push(new Card(Suits.SPADES, Ranks.TEN))
 
-    // this.tableau.stock.forEach(c => c.isUpSided = true)
+  title = 'solitaire';
+  
+  constructor(){
   }
 }

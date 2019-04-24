@@ -1,7 +1,7 @@
 import { Card, Suits, Ranks } from './card'
 import { IStockable } from '../interfaces/stock-piles'
 
-export class Tableau implements IStockable{
+export class Tableau implements IStockable {
 
     public stock: Card[];
 
@@ -35,12 +35,12 @@ export class Tableau implements IStockable{
             throw new Error('empty set or undefined');
     }
 
-    public pop(card: Card){
+    public pop(card: Card) {
         
         let i = this.stock.findIndex(c => c.suit === card.suit && c.rank === card.rank && c.isUpSided)
 
         if(i > -1) {
-            for(let j = this.stock.length - 1; j >= i; j--){
+            for(let j = this.stock.length - 1; j >= i; j--) {
                 this.stock.pop();
             }
 
@@ -51,13 +51,13 @@ export class Tableau implements IStockable{
     }
 
     // returns all the child cards in the tableau starting from the specified card
-    public select(card: Card): Card[]{
+    public select(card: Card): Card[] {
 
         let i = this.stock.findIndex(c => c.suit === card.suit && c.rank === card.rank && c.isUpSided)
 
         if(i > -1) {
             let cards: Card[] = [];
-            for(; i < this.stock.length; i++){
+            for(; i < this.stock.length; i++) {
                 cards.push(this.stock[i]);
             }
 

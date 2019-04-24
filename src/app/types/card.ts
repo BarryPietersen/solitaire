@@ -15,7 +15,7 @@ export class Card {
     }
 
     public toString(){
-        return `${Ranks[this.rank]} ${Suits[this.suit]} isUpsided: ${this.isUpSided}`;
+        return `${Ranks[this.rank]} ${Suits[this.suit]} isUpSided: ${this.isUpSided}`;
     }
 }
 

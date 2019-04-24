@@ -1,3 +1,3 @@
-<p>
-  selection works!
-</p>
+<div class="selection">
+  <app-card [card]="selection.peek" (notify)="selectionClicked($event)"></app-card>
+</div>

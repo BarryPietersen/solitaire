@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Foundation } from 'src/app/types/foundation';
+import { IClickedStockPile } from 'src/app/interfaces/event-data';
+import { Card } from 'src/app/types/card';
 
 @Component({
   selector: 'app-foundation',
@@ -7,21 +9,20 @@ import { Foundation } from 'src/app/types/foundation';
   styleUrls: ['./foundation.component.css']
 })
 export class FoundationComponent implements OnInit {
+  
   @Input() foundation: Foundation;
+  @Output() notify: EventEmitter<IClickedStockPile> = new EventEmitter<IClickedStockPile>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  image(): string {
-    let index = this.foundation.stock.length;
-    if(index > 0) {
-      let peek = this.foundation.stock[index];
-      return `${peek.suit}${peek.rank}.jpeg`
-          // this.image = this.card.isUpSided ?
-          //  `${this.card.rank}${this.card.suit}.jpg` : 'blue_back.jpg';
+  foundationClicked(card: Card) {
+    if(card.isUpSided) {
+      // notify event manager of the card
+      // and this tableau
+      this.notify.emit({ card: card, stockPile: this.foundation });
     }
-
-    return 'default faundation background';
   }
 }

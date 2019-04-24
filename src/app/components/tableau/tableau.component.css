@@ -1,4 +1,8 @@
 .alignCards{
+    width: 74px;
+    height: 114px;
     display: flex;
+    border-radius: 4px;
     flex-direction: column;
+    border: solid 1px lavender;
 }

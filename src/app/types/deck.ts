@@ -1,7 +1,25 @@
 import { Card, Suits, Ranks } from './card'
+import { IStockable } from '../interfaces/stock-piles';
 
-export class Deck {
+export class Deck implements IStockable {
+
     public stock: Card[];
+
+    constructor(shuffle: boolean) {
+        this.initializeCards();
+        if(shuffle) this.shuffle();
+    }
+
+    private initializeCards(): void {
+        this.stock = [];
+        
+        // s -> suit, r -> rank
+        for(let s = 0; s < 4; s++) {
+            for(let r = 0; r < 13; r++) {
+                this.stock.push(new Card(s, r));
+            }
+        }
+    }
 
     public pop(): Card {
         if (this.stock.length > 0)
@@ -15,21 +33,11 @@ export class Deck {
             c.isUpSided = false;
             this.stock.push(c);
         })
+        return true;
     }
 
-    constructor(shuffle: boolean) {
-        this.initializeCards();
-        if(shuffle) this.shuffle();
-    }
-
-    private initializeCards(): void {
-        this.stock = [];
-        
-        for(let s = 0; s < 4; s++) {
-            for(let r = 0; r < 13; r++) {
-                this.stock.push(new Card(s, r));
-            }
-        }
+    select(card: Card): Card[] {
+        return [this.stock[this.stock.length - 1]];
     }
 
     private shuffle() {

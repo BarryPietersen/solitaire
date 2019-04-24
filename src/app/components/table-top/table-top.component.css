@@ -1,5 +1,21 @@
-.alignTableaus{
+.tableTop{
     margin: auto;
+    width: 600px;
+}
+
+.alignDeckAndSelection{
+    display: flex;
+    height: 130px;
+    align-items: flex-start;
+}
+
+.alignFoundations{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.alignTableaus{
     display: flex;
     width: 600px;
     justify-content: space-between;

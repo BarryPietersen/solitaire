@@ -19,10 +19,8 @@ export class TableauComponent implements OnInit {
   ngOnInit() {
   }
 
-  cardClicked(card: Card){
-    if(card.isUpSided){
-      // notify game manager of the card
-      // and this tableau
+  cardClicked(card: Card) {
+    if(card.isUpSided) {
       this.notify.emit({ card: card, stockPile: this.tableau });
     }
   }
