@@ -21,9 +21,9 @@ export class TableTop {
             this.tableaus.push(new Tableau());
         }
         
-        this.foundations.push(new Foundation(Suits.CLUBS));
-        this.foundations.push(new Foundation(Suits.SPADES));
-        this.foundations.push(new Foundation(Suits.HEARTS));
+        this.foundations.push(new Foundation(Suits.SPADES));  
+        this.foundations.push(new Foundation(Suits.HEARTS));    
+        this.foundations.push(new Foundation(Suits.CLUBS));    
         this.foundations.push(new Foundation(Suits.DIAMONDS));
 
         this.deal();

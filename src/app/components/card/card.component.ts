@@ -10,12 +10,11 @@ export class CardComponent implements OnInit {
 
   @Input() card: Card;
   @Input('i') index: number;
-  @Output() notify: EventEmitter<Card> = new EventEmitter<Card>()
+  @Output() clicked = new EventEmitter<Card>()
   private face: string;
   private back: string;
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit() {
     this.index *= 25;
@@ -24,7 +23,7 @@ export class CardComponent implements OnInit {
   }
 
   onClick() {
-    this.notify.emit(this.card);
+    this.clicked.emit(this.card);
   }
 
   private getImage() {

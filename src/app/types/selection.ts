@@ -12,9 +12,11 @@ export class Selection implements IStockable {
 
     push(cards: Card[]): boolean {
         if(cards && cards.length === 1 && !cards[0].isUpSided) {
-            cards[0].flip();
-            this.peek = cards[0];
-            this.stock.push(cards[0]);
+            let newCard = cards[0];
+            newCard.flip();
+            let newStock = [...this.stock, newCard];
+            //this.peek = cards[0];
+            this.stock = newStock;//.push(cards[0]);
             return true;
         }
         return false;

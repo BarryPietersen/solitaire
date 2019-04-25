@@ -10,15 +10,14 @@ import { IClickedStockPile } from 'src/app/interfaces/event-data';
   styleUrls: ['./tableau.component.css']
 })
 export class TableauComponent implements OnInit {
+  
   @Input() tableau: Tableau;
   @Output() componentBaseClicked = new EventEmitter<Tableau>();
   @Output() componentCardClicked = new EventEmitter<IClickedStockPile>();
   
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   baseClicked() {
     if(this.tableau.stock.length === 0) {

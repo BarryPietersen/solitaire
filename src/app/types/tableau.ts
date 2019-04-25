@@ -44,7 +44,7 @@ export class Tableau implements IStockable {
                 this.stock.pop();
             }
 
-            if(this.stock.length > 0) this.stock[this.stock.length - 1].flip();
+            if(this.stock.length > 0) this.stock[this.stock.length - 1].isUpSided = true;;
         }
         else
             throw new Error('card not found in tableau stock');

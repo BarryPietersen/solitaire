@@ -1,11 +1,18 @@
 <div class="background">
   <div class="tableTop">
-    <div class="alignDeckAndSelection">
-      <app-deck [deck]="tableTop.deck" (notify)="eventManager.deckClicked($event)"></app-deck>
-      <app-selection [selection]="tableTop.selection" (notify)="eventManager.cardClicked($event)"></app-selection>
-    </div>
-    <div class="alignFoundations">
-      <!-- <app-foundation *ngFor="let foundation of tableTop.foundations" [foundation]="foundation" (notify)="eventManager.cardClicked($event)"></app-foundation> -->
+    <div clas="topSection">
+      <div class="alignDeckAndSelection">
+        <app-deck [deck]="tableTop.deck" (notify)="eventManager.deckClicked($event)"></app-deck>
+        <app-selection [selection]="tableTop.selection" (notify)="eventManager.cardClicked($event)"></app-selection>
+      </div>
+      <div class="alignFoundations">
+        <app-foundation
+          *ngFor="let foundation of tableTop.foundations"
+          [foundation]="foundation"
+          (componentCardClicked)="eventManager.cardClicked($event)"
+          (componentBaseClicked)="eventManager.foundationBaseClicked($event)">
+        </app-foundation>
+      </div>
     </div>
     <div class="alignTableaus">
       <app-tableau 

@@ -1,3 +1,5 @@
 <div class="selection">
-  <app-card [card]="selection.peek" (notify)="selectionClicked($event)"></app-card>
+  <div class="selectionCard" *ngFor="let card of selection.stock; let i = index">
+    <app-card [card]="card" [i]="i" (clicked)="selectionClicked($event)"></app-card>
+  </div>
 </div>

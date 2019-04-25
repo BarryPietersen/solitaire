@@ -3,16 +3,25 @@
     width: 600px;
 }
 
+.topSection{
+    display: flex;
+    height: 130px;
+    justify-content: space-between;
+}
+
 .alignDeckAndSelection{
     display: flex;
+    width: 200px;
     height: 130px;
     align-items: flex-start;
 }
 
 .alignFoundations{
+    float: right;
     display: flex;
+    width: 340px;
     justify-content: space-between;
-    width: 300px;
+    align-content: flex-end;
 }
 
 .alignTableaus{

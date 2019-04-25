@@ -3,6 +3,7 @@ import { TableTop } from 'src/app/types/table-top';
 import { IStockable } from '../interfaces/stock-piles'
 import { IClickedStockPile } from '../interfaces/event-data'
 import { Tableau } from './tableau';
+import { Foundation } from './foundation';
 
 export class EventManager {
 
@@ -18,7 +19,6 @@ export class EventManager {
 
     public deckClicked() {
         this.deSelect();
-        //alert('deck clicked');
 
         if(this.tableTop.deck.stock.length > 0){
             let card = this.tableTop.deck.stock.pop();
@@ -37,8 +37,13 @@ export class EventManager {
         }
     }
 
+    foundationBaseClicked(foundation: Foundation) {
+        if(this.selectedCard !== null && this. selectedStockPile !== null){
+            this.makeMove(foundation);
+        }
+    }
+
     tableauBaseClicked(tableau: Tableau) {
-        console.log("base clicked at manager level!!!!!!!!!!!!!!!!!!!!!");
         if(this.selectedCard !== null && this. selectedStockPile !== null){
             this.makeMove(tableau);
         }
@@ -59,12 +64,13 @@ export class EventManager {
     }
 
     private makeMove(stockPile: IStockable) {
+        //console.log(this.selectedStockPile.select);
         let cards = this.selectedStockPile.select(this.selectedCard);
 
         if(stockPile.push(cards)) {
             this.selectedStockPile.pop(this.selectedCard);
+            console.log(this.selectedStockPile.select);
             this.deSelect();
-            console.log(stockPile);
         }
         else {
             this.deSelect();
@@ -74,7 +80,6 @@ export class EventManager {
     private select(card: Card, stockPile: IStockable) {
         this.selectedCard = card;
         this.selectedStockPile = stockPile;
-        // alert("selected" + Suits[card.suit] + " " + Ranks[card.rank]);
     }
 
     private deSelect() {

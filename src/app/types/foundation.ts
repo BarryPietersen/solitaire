@@ -12,16 +12,17 @@ export class Foundation implements IStockable {
     }
 
     public push(cards: Card[]) {
-        if(cards || cards.length === 1) {
-            if (this.validatePush(cards[0])) {
-                this.stock.push(cards[0]);
-                cards[0].isUpSided = true;
-                if (cards[0].rank == Ranks.KING) { /* foundation complete event */ };
-                return true;
-            }
-            else
-                return false;
+        if(cards && cards.length === 1 && this.validatePush(cards[0])) {
+            cards[0].isUpSided = true;
+            let newStock = [...this.stock, cards[0]];
+            //this.stock.push(cards[0]);
+            this.stock = newStock;
+            if (cards[0].rank == Ranks.KING) { /* foundation complete event */ };
+            return true;
         }
+        else
+            return false;
+        
     }
 
     public pop() {
@@ -32,7 +33,7 @@ export class Foundation implements IStockable {
             throw new Error('empty stack');
     }
 
-    public select(card: Card): Card[] {
+    public select(card?: Card): Card[] {
         if(this.stock.length > 1) {
             return [this.stock[this.stock.length - 1]];
         }
@@ -44,13 +45,9 @@ export class Foundation implements IStockable {
         if (card.suit != this.suit) return false;
         else if (this.stock.length > 0)
         {
-            return card.rank - 1 === this.stock[this.stock.length - 1].rank
+            return card.rank - 1 === this.stock[this.stock.length - 1].rank;
         }
-        else if (card.rank === Ranks.ACE)
-        {
-            return true;
-        }
-
-        return false;
+        else
+            return (card.rank === Ranks.ACE);
     }
 }

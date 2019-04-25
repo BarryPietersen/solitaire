@@ -11,16 +11,18 @@ import { Card, Suits } from 'src/app/types/card';
 export class SelectionComponent implements OnInit {
 
   @Input() selection: Selection;
-  @Output() notify: EventEmitter<IClickedStockPile> = new EventEmitter<IClickedStockPile>();
+  @Output() notify = new EventEmitter<IClickedStockPile>();
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   selectionClicked(card: Card) {
     if(card.isUpSided) {
-      this.notify.emit({ card: card, stockPile: this.selection });
+      this.notify.emit({
+          card: card,
+          stockPile: this.selection 
+        });
     }
   }
 }

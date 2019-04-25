@@ -13,8 +13,7 @@ export class TableTopComponent implements OnInit {
   public tableTop: TableTop;
   public eventManager: EventManager;
 
-  constructor() {
-   }
+  constructor() { }
 
   ngOnInit() {
     this.tableTop = new TableTop();
