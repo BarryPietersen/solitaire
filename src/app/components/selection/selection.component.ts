@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Selection } from 'src/app/types/selection';
 import { IClickedStockPile } from 'src/app/interfaces/event-data';
-import { Card } from 'src/app/types/card';
+import { Card, Suits } from 'src/app/types/card';
 
 @Component({
   selector: 'app-selection',

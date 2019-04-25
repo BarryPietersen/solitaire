@@ -2,6 +2,7 @@ import { Card, Suits, Ranks } from './card';
 import { TableTop } from 'src/app/types/table-top';
 import { IStockable } from '../interfaces/stock-piles'
 import { IClickedStockPile } from '../interfaces/event-data'
+import { Tableau } from './tableau';
 
 export class EventManager {
 
@@ -36,9 +37,16 @@ export class EventManager {
         }
     }
 
+    tableauBaseClicked(tableau: Tableau) {
+        console.log("base clicked at manager level!!!!!!!!!!!!!!!!!!!!!");
+        if(this.selectedCard !== null && this. selectedStockPile !== null){
+            this.makeMove(tableau);
+        }
+    }
+
     public cardClicked(clickedData: IClickedStockPile) {
 
-        if(clickedData && clickedData.card && clickedData.stockPile){
+        if(clickedData && clickedData.card && clickedData.stockPile) {
             if(this.selectedCard !== null && this. selectedStockPile !== null){
                 this.makeMove(clickedData.stockPile);
             }
@@ -53,12 +61,12 @@ export class EventManager {
     private makeMove(stockPile: IStockable) {
         let cards = this.selectedStockPile.select(this.selectedCard);
 
-        if(stockPile.push(cards)){
-            //alert('pushed');
+        if(stockPile.push(cards)) {
             this.selectedStockPile.pop(this.selectedCard);
             this.deSelect();
+            console.log(stockPile);
         }
-        else{
+        else {
             this.deSelect();
         }
     }

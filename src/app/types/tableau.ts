@@ -77,7 +77,9 @@ export class Tableau implements IStockable {
 
             return peekSuit != cardSuit && peek.rank === card.rank + 1;
         }
-        else
+        else {
+            console.log("king to empty tableau " + (card.rank === Ranks.KING));
             return card.rank === Ranks.KING;
+        }
     }
 }

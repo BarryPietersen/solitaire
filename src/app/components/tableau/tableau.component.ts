@@ -11,7 +11,8 @@ import { IClickedStockPile } from 'src/app/interfaces/event-data';
 })
 export class TableauComponent implements OnInit {
   @Input() tableau: Tableau;
-  @Output() notify: EventEmitter<IClickedStockPile> = new EventEmitter<IClickedStockPile>();
+  @Output() componentBaseClicked = new EventEmitter<Tableau>();
+  @Output() componentCardClicked = new EventEmitter<IClickedStockPile>();
   
   constructor() {
   }
@@ -19,9 +20,15 @@ export class TableauComponent implements OnInit {
   ngOnInit() {
   }
 
+  baseClicked() {
+    if(this.tableau.stock.length === 0) {
+      this.componentBaseClicked.emit(this.tableau);
+    }
+  }
+
   cardClicked(card: Card) {
     if(card.isUpSided) {
-      this.notify.emit({ card: card, stockPile: this.tableau });
+      this.componentCardClicked.emit({ card: card, stockPile: this.tableau });
     }
   }
 }

@@ -8,7 +8,12 @@
       <!-- <app-foundation *ngFor="let foundation of tableTop.foundations" [foundation]="foundation" (notify)="eventManager.cardClicked($event)"></app-foundation> -->
     </div>
     <div class="alignTableaus">
-      <app-tableau *ngFor="let tableau of tableTop.tableaus" [tableau]="tableau" (notify)="eventManager.cardClicked($event)"></app-tableau>
+      <app-tableau 
+       *ngFor="let tableau of tableTop.tableaus"
+       [tableau]="tableau"
+       (componentCardClicked)="eventManager.cardClicked($event)"
+       (componentBaseClicked)="eventManager.tableauBaseClicked($event)">
+      </app-tableau>
     </div>
   </div>
 </div>
