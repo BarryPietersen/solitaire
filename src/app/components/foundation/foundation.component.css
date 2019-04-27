@@ -1,24 +1,14 @@
 .foundationBase{
-    width: 74px;
-    height: 114px;
-    border-radius: 4px;
+    width: 100px;
+    height: 153px;
+    border-radius: 9px;
     border: solid 1px lavender;
-    /* background-image: url('../../../assets/images/JPEG/S.png'); */
-    background-size: 50%;
+    background-size: 40%;
     background-repeat:no-repeat;
     background-position: center;
-}
-
-.baseImage{
-    /* position: absolute; */
-    display: block;
-    margin: auto;
-    width: 40%;
-    margin-top: 60%;
-    opacity: .5;
+    /* opacity: .5; */
 }
 
 .foundationCard{
-    height: 0;
     position: absolute;
 }

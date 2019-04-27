@@ -19,7 +19,6 @@ export class EventManager {
 
     public deckClicked(card?: Card) {
         this.deSelect();
-        console.log('deck clicked');
 
         if(this.tableTop.deck.stock.length > 0) {
             let card = this.tableTop.deck.stock.pop();
@@ -65,12 +64,10 @@ export class EventManager {
     }
 
     private makeMove(stockPile: IStockable) {
-        //console.log(this.selectedStockPile.select);
         let cards = this.selectedStockPile.select(this.selectedCard);
 
         if(stockPile.push(cards)) {
             this.selectedStockPile.pop(this.selectedCard);
-            // console.log(this.selectedStockPile.select);
             this.deSelect();
         }
         else {

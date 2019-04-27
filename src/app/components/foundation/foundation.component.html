@@ -1,5 +1,5 @@
-<div class="foundationBase" (click)="baseClicked()">
-    <!-- <img class="baseImage" src="{{symbol}}" alt="image not found"> -->
+<div class="foundationBase" (click)="baseClicked()" [style.background-image]="'url(' + suitSymbol + ')'">
+
     <div class="foundationCard" *ngFor="let card of foundation.stock; let i = index">
         <app-card [card]="card" [i]="i" (clicked)="cardClicked($event)">
         </app-card>

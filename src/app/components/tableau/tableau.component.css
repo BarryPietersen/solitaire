@@ -1,12 +1,12 @@
 .alignCardsVertically{
-    width: 74px;
-    height: 114px;
+    width: 100px;
+    height: 153px;
+    border-radius: 9px;
     display: flex;
-    border-radius: 4px;
     flex-direction: column;
     border: solid 1px lavender;
 }
 
 .tableauCard{
-    height: 26px;
+    height: 35px;
 }

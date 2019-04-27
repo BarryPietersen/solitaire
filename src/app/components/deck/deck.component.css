@@ -1,7 +1,8 @@
 .deckBase{
-    width: 75px;
-    height: 114px;
+    width: 100px;
+    height: 153px;
+    border-radius: 9px;
     margin-right: 10px;
     border: solid 1px lavender;
-    border-radius: 4px;
+
 }

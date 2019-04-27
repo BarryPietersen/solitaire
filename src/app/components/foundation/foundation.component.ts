@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Foundation } from 'src/app/types/foundation';
 import { IClickedStockPile } from 'src/app/interfaces/event-data';
 import { Card, Suits } from 'src/app/types/card';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-foundation',
@@ -14,14 +13,12 @@ export class FoundationComponent implements OnInit {
   @Input() foundation: Foundation;
   @Output() componentCardClicked = new EventEmitter<IClickedStockPile>();
   @Output() componentBaseClicked = new EventEmitter<Foundation>();
-  private suitSymbol: SafeUrl;
+  private suitSymbol: string;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor() { }
 
   ngOnInit() {
-    let imageUrl = "../../assets/images/JPEG/" + Suits[this.foundation.suit][0] + ".png"
-    this.suitSymbol = this.sanitizer.bypassSecurityTrustUrl(imageUrl);
-    let s = this.suitSymbol
+    this.suitSymbol = "../../assets/images/JPEG/" + Suits[this.foundation.suit][0] + ".png"
   }
 
   baseClicked() {
