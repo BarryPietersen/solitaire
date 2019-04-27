@@ -1,10 +1,10 @@
 .tableTop{
     margin: auto;
-    width: 750px;
+    width: 800px;
 }
 
 .topSection{
-    height: 160px;
+    /* height: 160px; */
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -18,13 +18,14 @@
 }
 
 .alignFoundations{
-    width: 60%;
+    width: 56%;
     display: flex;
     justify-content: space-between;
     align-content: flex-end;
 }
 
 .alignTableaus{
+    
     width: 100%;
     display: flex;
     justify-content: space-between;

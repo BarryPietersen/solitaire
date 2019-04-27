@@ -1,4 +1,5 @@
 .alignCardsVertically{
+    margin-top: 15px;
     width: 100px;
     height: 153px;
     border-radius: 9px;
@@ -8,5 +9,5 @@
 }
 
 .tableauCard{
-    height: 35px;
+    height: 37px;
 }
