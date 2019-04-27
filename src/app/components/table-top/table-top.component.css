@@ -4,29 +4,29 @@
 }
 
 .topSection{
-    display: flex;
     height: 130px;
+    width: 600px;
+    display: flex;
     justify-content: space-between;
 }
 
 .alignDeckAndSelection{
-    display: flex;
     width: 200px;
     height: 130px;
+    display: flex;
     align-items: flex-start;
 }
 
 .alignFoundations{
-    float: right;
+    width: 350px;
     display: flex;
-    width: 340px;
     justify-content: space-between;
     align-content: flex-end;
 }
 
 .alignTableaus{
-    display: flex;
     width: 600px;
+    display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }

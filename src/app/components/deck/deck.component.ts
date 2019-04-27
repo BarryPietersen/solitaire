@@ -10,13 +10,20 @@ import { Card } from 'src/app/types/card';
 export class DeckComponent implements OnInit {
 
   @Input() deck: Deck;
-  @Output() notify = new EventEmitter<object>();
+  @Output() componentBaseClicked = new EventEmitter();
+  @Output() componentCardClicked = new EventEmitter<Card>();
 
   constructor() { }
 
   ngOnInit() { }
 
-  deckClicked(card?: Card) {
-    this.notify.emit({});
+  baseClicked() {
+    if(this.deck.stock.length === 0) {
+      this.componentBaseClicked.emit();
+    }
+  }
+
+  cardClicked(card?: Card) {
+    this.componentCardClicked.emit(card);
   }
 }

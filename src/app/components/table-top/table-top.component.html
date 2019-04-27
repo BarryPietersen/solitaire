@@ -1,8 +1,12 @@
 <div class="background">
   <div class="tableTop">
-    <div clas="topSection">
+    <div class="topSection">
       <div class="alignDeckAndSelection">
-        <app-deck [deck]="tableTop.deck" (notify)="eventManager.deckClicked($event)"></app-deck>
+        <app-deck
+          [deck]="tableTop.deck"
+          (componentBaseClicked)="eventManager.deckClicked($event)"
+          (componentCardClicked)="eventManager.deckClicked($event)">
+        </app-deck>
         <app-selection [selection]="tableTop.selection" (notify)="eventManager.cardClicked($event)"></app-selection>
       </div>
       <div class="alignFoundations">

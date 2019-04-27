@@ -1,3 +1,6 @@
-<div class="outline">
-    <app-card [card]="deck.stock[deck.stock.length - 1]" (clicked)="deckClicked($event)"></app-card>
+<div class="deckBase" (click)="baseClicked()">
+    <app-card *ngIf="deck.stock.length > 0"
+        [card]="deck.stock[deck.stock.length - 1]"
+        (clicked)="cardClicked($event)">
+    </app-card>
 </div>

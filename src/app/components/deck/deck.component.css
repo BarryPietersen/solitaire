@@ -1,7 +1,7 @@
-.outline{
+.deckBase{
     width: 75px;
+    height: 114px;
     margin-right: 10px;
-    height: auto;
-    border: thin black;
-    border-radius: 20px;
+    border: solid 1px lavender;
+    border-radius: 4px;
 }

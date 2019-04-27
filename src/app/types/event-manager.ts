@@ -17,20 +17,21 @@ export class EventManager {
         this.selectedStockPile = null;
     }
 
-    public deckClicked() {
+    public deckClicked(card?: Card) {
         this.deSelect();
+        console.log('deck clicked');
 
-        if(this.tableTop.deck.stock.length > 0){
+        if(this.tableTop.deck.stock.length > 0) {
             let card = this.tableTop.deck.stock.pop();
             this.tableTop.selection.push([card]);
         }
-        else if(this.tableTop.selection.stock.length > 0){
-            let newStock = this.tableTop.selection.stock;
+        else if(this.tableTop.selection.stock.length > 0) {
+            let newDeckStock = this.tableTop.selection.stock;
             this.tableTop.selection.stock = [];
-            newStock.forEach(c => c.isUpSided = false);
-            this.tableTop.deck.stock = newStock.reverse();
+            newDeckStock.forEach(c => c.isUpSided = false);
+            this.tableTop.deck.stock = newDeckStock.reverse();
         }
-        else{
+        else {
             // all cards from the deck and
             // selection have been played.
             // there is nothing to do here
@@ -38,13 +39,13 @@ export class EventManager {
     }
 
     foundationBaseClicked(foundation: Foundation) {
-        if(this.selectedCard !== null && this. selectedStockPile !== null){
+        if(this.selectedCard !== null && this. selectedStockPile !== null) {
             this.makeMove(foundation);
         }
     }
 
     tableauBaseClicked(tableau: Tableau) {
-        if(this.selectedCard !== null && this. selectedStockPile !== null){
+        if(this.selectedCard !== null && this. selectedStockPile !== null) {
             this.makeMove(tableau);
         }
     }
@@ -52,7 +53,7 @@ export class EventManager {
     public cardClicked(clickedData: IClickedStockPile) {
 
         if(clickedData && clickedData.card && clickedData.stockPile) {
-            if(this.selectedCard !== null && this. selectedStockPile !== null){
+            if(this.selectedCard !== null && this. selectedStockPile !== null) {
                 this.makeMove(clickedData.stockPile);
             }
             else{
@@ -69,7 +70,7 @@ export class EventManager {
 
         if(stockPile.push(cards)) {
             this.selectedStockPile.pop(this.selectedCard);
-            console.log(this.selectedStockPile.select);
+            // console.log(this.selectedStockPile.select);
             this.deSelect();
         }
         else {

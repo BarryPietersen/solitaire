@@ -1,3 +1,5 @@
+
+
 export class Card {
     
     public rank: Ranks;
@@ -10,11 +12,16 @@ export class Card {
         this.isUpSided = false;
     }
 
-    public flip(){
+    // public clicked() {
+    //     let wasemmitted = this.emit('selected', this);
+    //     console.log('was emitted = ' + wasemmitted);
+    // }
+
+    public flip() {
         this.isUpSided = !this.isUpSided;
     }
 
-    public toString(){
+    public toString() {
         return `${Ranks[this.rank]} ${Suits[this.suit]} isUpSided: ${this.isUpSided}`;
     }
 }

@@ -1,4 +1,12 @@
+.selectionBase{
+    width: 75px;
+    height: 114px;
+    margin-left: 10px;
+    border: solid 1px lavender;
+    border-radius: 4px;
+}
+
 .selectionCard{
-    height: 0;
+    width: 75px;
     position: absolute;
 }
