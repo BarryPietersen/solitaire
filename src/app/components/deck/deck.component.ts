@@ -24,6 +24,8 @@ export class DeckComponent implements OnInit {
   }
 
   cardClicked(card?: Card) {
-    this.componentCardClicked.emit(card);
+    if(this.deck.stock.length > 0) {
+      this.componentCardClicked.emit(card);
+    }
   }
 }

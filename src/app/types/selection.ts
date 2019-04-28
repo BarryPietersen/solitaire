@@ -34,9 +34,9 @@ export class Selection implements IStockable {
     }
 
     select(): Card[] {
-        if(this.stock.length < 1) throw new Error('the selection stock pile is empty');
-
-        return [this.stock[this.stock.length - 1]];
+        if(this.stock.length > 0) return [this.stock[this.stock.length - 1]];
+        else
+            throw new Error('the selection stock pile is empty');       
     }
 
     highlight(card: Card, isHighlighted: boolean) {

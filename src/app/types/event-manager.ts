@@ -55,9 +55,8 @@ export class EventManager {
             if(this.selectedCard !== null && this. selectedStockPile !== null) {
                 this.makeMove(clickedData.stockPile);
             }
-            else{
+            else
                 this.select(clickedData.card, clickedData.stockPile);
-            }
         }
         else
             throw new Error('poorly structured event data');

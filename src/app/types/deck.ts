@@ -37,16 +37,17 @@ export class Deck implements IStockable {
     }
 
     select(card: Card): Card[] {
-        return [this.stock[this.stock.length - 1]];
+        if (this.stock.length > 0){
+            return [this.stock[this.stock.length - 1]];
+        }
+        else
+            throw new Error("stack empty");
     }
 
+    // no implementation for this event yet
     highlight(card: Card, isHighlighted: boolean) {
-        if(card && isHighlighted) {
-            
-        }
-        else {
-            
-        }
+        if(card && isHighlighted) {}
+        else {}
     }
 
     private shuffle() {
