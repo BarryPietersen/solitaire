@@ -4,6 +4,7 @@ import { IStockable } from '../interfaces/stock-piles'
 export class Tableau implements IStockable {
 
     public stock: Card[];
+    public highlightGUI: Function;
 
     constructor() {
         this.stock = [];
@@ -67,6 +68,21 @@ export class Tableau implements IStockable {
             throw new Error('card not found in tableau stock');
     }
 
+    highlight(card: Card, isHighlighted: boolean) {
+        if(card && isHighlighted) {
+            // let i = this.stock.findIndex(c => c === card);
+            // let cards: Card[] = [];
+
+            // for(; i < this.stock.length; i++) {
+            //     cards.push(this.stock[i]);
+            // }
+            this.highlightGUI(card, true);
+        }
+        else {
+            this.highlightGUI(card, false);
+        }
+    }
+
     private validPush(card: Card, stock: Card[]): boolean {
         if(!card || !card.isUpSided) return false;
 
@@ -78,7 +94,6 @@ export class Tableau implements IStockable {
             return peekSuit != cardSuit && peek.rank === card.rank + 1;
         }
         else {
-            console.log("king to empty tableau " + (card.rank === Ranks.KING));
             return card.rank === Ranks.KING;
         }
     }

@@ -7,7 +7,10 @@
           (componentBaseClicked)="eventManager.deckClicked($event)"
           (componentCardClicked)="eventManager.deckClicked($event)">
         </app-deck>
-        <app-selection [selection]="tableTop.selection" (notify)="eventManager.cardClicked($event)"></app-selection>
+        <app-selection
+          [selection]="tableTop.selection"
+          (componentCardClicked)="eventManager.cardClicked($event)">
+        </app-selection>
       </div>
       <div class="alignFoundations">
         <app-foundation

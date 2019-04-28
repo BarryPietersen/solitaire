@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from 'src/app/types/card';
 import { Tableau } from 'src/app/types/tableau';
-import { IStockable } from 'src/app/interfaces/stock-piles';
 import { IClickedStockPile } from 'src/app/interfaces/event-data';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-tableau',
@@ -17,7 +17,9 @@ export class TableauComponent implements OnInit {
   
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.tableau.highlightGUI = this.highlightCard;
+   }
 
   baseClicked() {
     if(this.tableau.stock.length === 0) {
@@ -28,6 +30,14 @@ export class TableauComponent implements OnInit {
   cardClicked(card: Card) {
     if(card.isUpSided) {
       this.componentCardClicked.emit({ card: card, stockPile: this.tableau });
+    }
+  }
+
+  highlightCard(card: Card, isHighlighted: boolean) {
+    let cardElement = document.getElementById(card.toString());
+
+    if(card) {
+      cardElement.style.borderTop = isHighlighted ? 'solid 3px black': '';
     }
   }
 }

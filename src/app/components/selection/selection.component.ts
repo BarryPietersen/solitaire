@@ -11,18 +11,28 @@ import { Card, Suits } from 'src/app/types/card';
 export class SelectionComponent implements OnInit {
 
   @Input() selection: Selection;
-  @Output() notify = new EventEmitter<IClickedStockPile>();
+  @Output() componentCardClicked = new EventEmitter<IClickedStockPile>();
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.selection.highlightGUI = this.highlightCard;
+   }
 
   selectionClicked(card: Card) {
     if(card.isUpSided) {
-      this.notify.emit({
+      this.componentCardClicked.emit({
           card: card,
           stockPile: this.selection 
         });
+    }
+  }
+
+  highlightCard(card: Card, isHighlighted: boolean) {
+    let cardElement = document.getElementById(card.toString());
+
+    if(card) {
+      cardElement.style.border = isHighlighted ? 'solid 2px black' : '';
     }
   }
 }

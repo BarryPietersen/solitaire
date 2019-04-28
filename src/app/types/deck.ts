@@ -40,6 +40,15 @@ export class Deck implements IStockable {
         return [this.stock[this.stock.length - 1]];
     }
 
+    highlight(card: Card, isHighlighted: boolean) {
+        if(card && isHighlighted) {
+            
+        }
+        else {
+            
+        }
+    }
+
     private shuffle() {
         let card: Card;
         let rand: number;

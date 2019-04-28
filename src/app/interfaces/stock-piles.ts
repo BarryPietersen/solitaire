@@ -6,4 +6,5 @@ export interface IStockable {
     push(cards: Card[]): boolean;
     pop(card: Card);
     select(card: Card): Card[];
+    highlight(card: Card, isHighlighted: boolean);
 }

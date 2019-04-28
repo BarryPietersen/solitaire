@@ -5,6 +5,7 @@ export class Foundation implements IStockable {
 
     public suit: Suits;
     public stock: Card[];
+    public highlightGUI: Function;
 
     constructor(suit: Suits) {
         this.suit = suit;
@@ -15,7 +16,6 @@ export class Foundation implements IStockable {
         if(cards && cards.length === 1 && this.validatePush(cards[0])) {
             cards[0].isUpSided = true;
             let newStock = [...this.stock, cards[0]];
-            //this.stock.push(cards[0]);
             this.stock = newStock;
             if (cards[0].rank == Ranks.KING) { /* foundation complete event */ };
             return true;
@@ -34,8 +34,14 @@ export class Foundation implements IStockable {
     }
 
     public select(card?: Card): Card[] {
-        if(this.stock.length > 1) {
+        if(this.stock.length > 0) {
             return [this.stock[this.stock.length - 1]];
+        }
+    }
+
+    highlight(card: Card, isHighlighted: boolean) {
+        if(card) {
+          this.highlightGUI(card, isHighlighted);
         }
     }
 

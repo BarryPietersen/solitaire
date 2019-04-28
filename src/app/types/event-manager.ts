@@ -76,12 +76,16 @@ export class EventManager {
     }
 
     private select(card: Card, stockPile: IStockable) {
+        stockPile.highlight(card, true);
         this.selectedCard = card;
         this.selectedStockPile = stockPile;
     }
 
     private deSelect() {
-        this.selectedCard = null;
-        this.selectedStockPile = null;
+        if(this.selectedStockPile) {
+            this.selectedStockPile.highlight(this.selectedCard, false);
+            this.selectedCard = null;
+            this.selectedStockPile = null;
+        }
     }
 }

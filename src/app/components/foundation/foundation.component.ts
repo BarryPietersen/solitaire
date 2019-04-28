@@ -19,6 +19,7 @@ export class FoundationComponent implements OnInit {
 
   ngOnInit() {
     this.suitSymbol = "../../assets/images/JPEG/" + Suits[this.foundation.suit][0] + ".png"
+    this.foundation.highlightGUI = this.highlightCard;
   }
 
   baseClicked() {
@@ -33,6 +34,14 @@ export class FoundationComponent implements OnInit {
         card: card,
         stockPile: this.foundation
        });
+    }
+  }
+
+  highlightCard(card: Card, isHighlighted: boolean) {
+    let cardElement = document.getElementById(card.toString());
+
+    if(card) {
+      cardElement.style.borderTop = isHighlighted ? 'solid 3px black' : '';
     }
   }
 }
