@@ -12,11 +12,6 @@ export class Card {
         this.isUpSided = false;
     }
 
-    // public clicked() {
-    //     let wasemmitted = this.emit('selected', this);
-    //     console.log('was emitted = ' + wasemmitted);
-    // }
-
     public flip() {
         this.isUpSided = !this.isUpSided;
     }

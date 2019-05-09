@@ -11,8 +11,8 @@ export class CardComponent implements OnInit {
   @Input() card: Card;
   @Input('i') index: number;
   @Output() clicked = new EventEmitter<Card>()
-  private face: string;
-  private back: string;
+  public face: string;
+  public back: string;
 
   constructor() { }
 

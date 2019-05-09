@@ -13,7 +13,7 @@ export class FoundationComponent implements OnInit {
   @Input() foundation: Foundation;
   @Output() componentCardClicked = new EventEmitter<IClickedStockPile>();
   @Output() componentBaseClicked = new EventEmitter<Foundation>();
-  private suitSymbol: string;
+  public suitSymbol: string;
 
   constructor() { }
 

@@ -18,14 +18,8 @@ export class DeckComponent implements OnInit {
   ngOnInit() { }
 
   baseClicked() {
-    if(this.deck.stock.length === 0) {
-      this.componentBaseClicked.emit();
-    }
+    this.componentBaseClicked.emit();
   }
 
-  cardClicked(card?: Card) {
-    if(this.deck.stock.length > 0) {
-      this.componentCardClicked.emit(card);
-    }
-  }
+  cardClicked(card?: Card) { }
 }
