@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
   @Input() card: Card;
   @Output() clicked = new EventEmitter<Card>()
   @Output() dblClicked = new EventEmitter<Card>()
-  private isSingleClick: boolean;
+  private wasDblClick: boolean;
   public face: string;
   public back: string;
 
@@ -22,15 +22,15 @@ export class CardComponent implements OnInit {
   }
 
   onClick() {
-    this.isSingleClick = true;
+    this.wasDblClick = false;
     setTimeout(() => {
-      if(this.isSingleClick)
+      if(!this.wasDblClick)
         this.clicked.emit(this.card);
-    }, 205)
+    }, 190)
   }
 
   onDblClick() {
-    this.isSingleClick = false;
+    this.wasDblClick = true;
     this.dblClicked.emit(this.card);
   }
 

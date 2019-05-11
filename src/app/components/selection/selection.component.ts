@@ -20,18 +20,27 @@ export class SelectionComponent implements OnInit {
 
   selectionClicked(card: Card) {
     if(card.isUpSided) {
-      this.componentCardClicked.emit({
-          card: card,
-          stockPile: this.selection,
-          wasDblClicked: false
-        });
+      this.notify(card, false);
     }
   }
 
-  highlightCard(card: Card, isHighlighted: boolean) {
-    let cardElement = document.getElementById(card.toString());
+  selectionDblClicked(card: Card) {
+    if(card.isUpSided) {
+      this.notify(card, true);
+    }
+  }
 
+  notify(card: Card, _wasDblClicked: boolean) {
+    this.componentCardClicked.emit({ 
+      card: card,
+      stockPile: this.selection,
+      wasDblClicked: _wasDblClicked
+    });
+  }
+
+  highlightCard(card: Card, isHighlighted: boolean) {
     if(card) {
+      let cardElement = document.getElementById(card.toString());
       cardElement.style.border = isHighlighted ? 'solid 2px black' : '';
     }
   }
