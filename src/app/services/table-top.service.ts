@@ -9,6 +9,6 @@ export class TableTopService {
   constructor(private deckSvc: DeckService) { }
   
   public getTableTop() {
-    return new TableTop(this.deckSvc.getDeck());
+    return new TableTop(this.deckSvc.getDeck(true));
   }
 }
