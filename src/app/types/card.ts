@@ -1,5 +1,3 @@
-
-
 export class Card {
     
     public rank: Ranks;

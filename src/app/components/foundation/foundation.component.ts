@@ -32,7 +32,8 @@ export class FoundationComponent implements OnInit {
     if(card.isUpSided) {
       this.componentCardClicked.emit({
         card: card,
-        stockPile: this.foundation
+        stockPile: this.foundation,
+        wasDblClicked: false
        });
     }
   }

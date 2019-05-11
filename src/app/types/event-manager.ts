@@ -39,21 +39,23 @@ export class EventManager {
 
     foundationBaseClicked(foundation: Foundation) {
         if(this.selectedCard !== null && this. selectedStockPile !== null) {
-            this.makeMove(foundation);
+            this.tryMove(foundation);
         }
     }
 
     tableauBaseClicked(tableau: Tableau) {
         if(this.selectedCard !== null && this. selectedStockPile !== null) {
-            this.makeMove(tableau);
+            this.tryMove(tableau);
         }
     }
 
     public cardClicked(clickedData: IClickedStockPile) {
-
         if(clickedData && clickedData.card && clickedData.stockPile) {
-            if(this.selectedCard !== null && this. selectedStockPile !== null) {
-                this.makeMove(clickedData.stockPile);
+            if(this.selectedCard !== null && this.selectedStockPile !== null) {
+                this.tryMove(clickedData.stockPile);
+            }
+            else if(clickedData.wasDblClicked) {
+                this.tryDblClickMove(clickedData);
             }
             else
                 this.select(clickedData.card, clickedData.stockPile);
@@ -62,7 +64,7 @@ export class EventManager {
             throw new Error('poorly structured event data');
     }
 
-    private makeMove(stockPile: IStockable) {
+    private tryMove(stockPile: IStockable) {
         let cards = this.selectedStockPile.select(this.selectedCard);
 
         if(stockPile.push(cards)) {
@@ -72,6 +74,14 @@ export class EventManager {
         else {
             this.deSelect();
         }
+    }
+
+    private tryDblClickMove(dblClickedData: IClickedStockPile) {
+        this.tableTop.foundations.forEach(f => {
+            if(f.push([dblClickedData.card])) {
+                dblClickedData.stockPile.pop(dblClickedData.card);
+            }
+        })
     }
 
     private select(card: Card, stockPile: IStockable) {

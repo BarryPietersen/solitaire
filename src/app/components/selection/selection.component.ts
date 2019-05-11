@@ -9,7 +9,6 @@ import { Card, Suits } from 'src/app/types/card';
   styleUrls: ['./selection.component.css']
 })
 export class SelectionComponent implements OnInit {
-
   @Input() selection: Selection;
   @Output() componentCardClicked = new EventEmitter<IClickedStockPile>();
 
@@ -23,7 +22,8 @@ export class SelectionComponent implements OnInit {
     if(card.isUpSided) {
       this.componentCardClicked.emit({
           card: card,
-          stockPile: this.selection 
+          stockPile: this.selection,
+          wasDblClicked: false
         });
     }
   }

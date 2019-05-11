@@ -29,7 +29,22 @@ export class TableauComponent implements OnInit {
 
   cardClicked(card: Card) {
     if(card.isUpSided) {
-      this.componentCardClicked.emit({ card: card, stockPile: this.tableau });
+      this.componentCardClicked.emit({
+          card: card,
+          stockPile: this.tableau,
+          wasDblClicked: false
+        });
+    }
+  }
+
+  cardDblClicked(card: Card) {
+    console.log('dbl clicked');
+    if(card.isUpSided && this.tableau.select(card).length === 1) {
+      this.componentCardClicked.emit({ 
+          card: card,
+          stockPile: this.tableau,
+          wasDblClicked: true
+        });
     }
   }
 

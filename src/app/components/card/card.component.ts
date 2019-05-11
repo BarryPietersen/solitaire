@@ -7,23 +7,31 @@ import { Card, Ranks, Suits } from '../../types/card'
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
   @Input() card: Card;
-  @Input('i') index: number;
   @Output() clicked = new EventEmitter<Card>()
+  @Output() dblClicked = new EventEmitter<Card>()
+  private isSingleClick: boolean;
   public face: string;
   public back: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.index *= 25;
     this.face = this.getImage();
     this.back = '../../assets/images/JPEG/blue_back.jpg'
   }
 
   onClick() {
-    this.clicked.emit(this.card);
+    this.isSingleClick = true;
+    setTimeout(() => {
+      if(this.isSingleClick)
+        this.clicked.emit(this.card);
+    }, 150)
+  }
+
+  onDblClick() {
+    this.isSingleClick = false;
+    this.dblClicked.emit(this.card);
   }
 
   private getImage() {

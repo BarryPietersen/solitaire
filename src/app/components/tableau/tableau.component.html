@@ -1,6 +1,9 @@
 <div class="alignCardsVertically" (click)="baseClicked()">
-    <div class="tableauCard" *ngFor="let card of tableau.stock; let i = index">
-        <app-card [card]="card" [i]="i" (clicked)="cardClicked($event)">
+    <div class="tableauCard" *ngFor="let card of tableau.stock">
+        <app-card
+            [card]="card"
+            (clicked)="cardClicked($event)"
+            (dblClicked)="cardDblClicked($event)">
         </app-card>
     </div>
 </div>
