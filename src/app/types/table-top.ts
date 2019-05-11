@@ -5,14 +5,13 @@ import { Deck } from './deck'
 import { Selection } from './selection';
 
 export class TableTop {
-
     public deck: Deck;
     public selection: Selection;
     public tableaus: Tableau[];
     public foundations: Foundation[];
 
-    public constructor() {
-        this.deck = new Deck(true);
+    public constructor(_deck: Deck) {
+        this.deck = _deck;
         this.selection = new Selection();
         this.tableaus = [];
         this.foundations = [];
