@@ -1,9 +1,9 @@
 <div class="selection">
-  <div class="selectionCard" *ngFor="let card of selection.stock">
     <app-card 
+      class="selectionCard"
+      *ngFor="let card of selection.stock"
       [card]="card"
       (clicked)="selectionClicked($event)"
       (dblClicked)="selectionDblClicked($event)">
     </app-card>
-  </div>
 </div>

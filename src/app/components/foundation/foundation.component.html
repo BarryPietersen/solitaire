@@ -1,9 +1,9 @@
 <div class="foundationBase" (click)="baseClicked()" [style.background-image]="'url(' + suitSymbol + ')'">
-    <div class="foundationCard" *ngFor="let card of foundation.stock">
-        <app-card
-            [card]="card"
-            (clicked)="cardClicked($event)" 
-            (dblClicked)="null">
-        </app-card>
-    </div>
+    <app-card
+        class="foundationCard"
+        *ngFor="let card of foundation.stock"
+        [card]="card"
+        (clicked)="cardClicked($event)" 
+        (dblClicked)="null">
+    </app-card>
 </div>
