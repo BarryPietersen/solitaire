@@ -26,7 +26,7 @@ export class CardComponent implements OnInit {
     setTimeout(() => {
       if(!this.wasDblClick)
         this.clicked.emit(this.card);
-    }, 190)
+    }, 225)
   }
 
   onDblClick() {

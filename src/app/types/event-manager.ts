@@ -18,7 +18,10 @@ export class EventManager {
     }
 
     public deckClicked(card?: Card) {
-        this.deSelect();
+        if(this.selectedStockPile) {
+            this.selectedStockPile.highlight(this.selectedCard, false);
+            this.deSelect();
+        }
 
         if(this.tableTop.deck.stock.length > 0) {
             let card = this.tableTop.deck.stock.pop();
@@ -72,6 +75,7 @@ export class EventManager {
             this.deSelect();
         }
         else {
+            this.selectedStockPile.highlight(this.selectedCard, false);
             this.deSelect();
         }
     }
@@ -91,10 +95,7 @@ export class EventManager {
     }
 
     private deSelect() {
-        if(this.selectedStockPile) {
-            this.selectedStockPile.highlight(this.selectedCard, false);
-            this.selectedCard = null;
-            this.selectedStockPile = null;
-        }
+        this.selectedCard = null;
+        this.selectedStockPile = null;
     }
 }

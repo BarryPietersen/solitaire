@@ -2,7 +2,6 @@ import { Card, Suits, Ranks } from './card'
 import { IStockable } from '../interfaces/stock-piles'
 
 export class Tableau implements IStockable {
-
     public stock: Card[];
     public highlightGUI: Function;
 
@@ -37,7 +36,7 @@ export class Tableau implements IStockable {
 
     // returns all the child cards in the tableau starting from the specified card
     public select(card: Card): Card[] {
-        let i = this.stock.findIndex(c => c.suit === card.suit && c.rank === card.rank && c.isUpSided)
+        let i = this.stock.findIndex(c => c === card)
 
         if(i > -1) {
             let cards: Card[] = [];
@@ -52,17 +51,9 @@ export class Tableau implements IStockable {
     }
 
     highlight(card: Card, isHighlighted: boolean) {
-        if(card && isHighlighted) {
-            // let i = this.stock.findIndex(c => c === card);
-            // let cards: Card[] = [];
-
-            // for(; i < this.stock.length; i++) {
-            //     cards.push(this.stock[i]);
-            // }
-            this.highlightGUI(card, true);
-        }
-        else {
-            this.highlightGUI(card, false);
+        if(card) {
+            let cards: Card[] = this.select(card);
+            this.highlightGUI(card, isHighlighted, cards);
         }
     }
 

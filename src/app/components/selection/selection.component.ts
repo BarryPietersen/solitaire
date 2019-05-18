@@ -41,7 +41,7 @@ export class SelectionComponent implements OnInit {
   highlightCard(card: Card, isHighlighted: boolean) {
     if(card) {
       let cardElement = document.getElementById(card.toString());
-      cardElement.style.border = isHighlighted ? 'solid 2px black' : '';
+      cardElement.style.border = isHighlighted ? 'solid 2px blue' : '';
     }
   }
 }

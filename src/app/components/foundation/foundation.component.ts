@@ -42,7 +42,7 @@ export class FoundationComponent implements OnInit {
     let cardElement = document.getElementById(card.toString());
 
     if(card) {
-      cardElement.style.borderTop = isHighlighted ? 'solid 3px black' : '';
+      cardElement.style.border = isHighlighted ? 'solid 2px blue' : '';
     }
   }
 }

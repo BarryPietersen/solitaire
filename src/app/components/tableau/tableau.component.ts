@@ -45,10 +45,32 @@ export class TableauComponent implements OnInit {
     });
   }
 
-  highlightCard(card: Card, isHighlighted: boolean) {
-    if(card) {
-      let cardElement = document.getElementById(card.toString());
-      cardElement.style.borderTop = isHighlighted ? 'solid 3px black': '';
+  highlightCard(card: Card, isHighlighted: boolean, cards?: Card[]) {
+    if(card || cards) {
+      if(isHighlighted) {
+        let borderstyle = 'solid 2px blue';
+        let topcard = document.getElementById(cards[0].toString());
+        let bottomcard = document.getElementById(cards[cards.length - 1].toString());
+
+        topcard.style.borderTop = borderstyle;
+        topcard.style.borderLeft = borderstyle;
+        topcard.style.borderRight = borderstyle;
+
+        bottomcard.style.borderLeft = borderstyle;
+        bottomcard.style.borderRight = borderstyle;
+        bottomcard.style.borderBottom = borderstyle;
+
+        for(let i = 1; i < cards.length; i++) {
+          let current = document.getElementById(cards[i].toString());
+
+          current.style.borderLeft = borderstyle;
+          current.style.borderRight = borderstyle;
+        }
+      }
+      else {
+        cards.forEach(c =>
+           document.getElementById(c.toString()).style.border = '')
+      }
     }
   }
 }
