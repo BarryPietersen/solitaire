@@ -53,23 +53,23 @@ export class TableauComponent implements OnInit {
         let bottomcard = document.getElementById(cards[cards.length - 1].toString());
 
         topcard.style.borderTop = borderstyle;
-        topcard.style.borderLeft = borderstyle;
-        topcard.style.borderRight = borderstyle;
+        topcard.style.marginTop = '-1px';
 
-        bottomcard.style.borderLeft = borderstyle;
-        bottomcard.style.borderRight = borderstyle;
         bottomcard.style.borderBottom = borderstyle;
 
-        for(let i = 1; i < cards.length; i++) {
-          let current = document.getElementById(cards[i].toString());
-
-          current.style.borderLeft = borderstyle;
-          current.style.borderRight = borderstyle;
-        }
+        cards.forEach(c => {
+          let el = document.getElementById(c.toString());
+          el.style.borderLeft = borderstyle;
+          el.style.borderRight = borderstyle;
+          el.style.marginLeft = '-1px';
+        })
       }
       else {
-        cards.forEach(c =>
-           document.getElementById(c.toString()).style.border = '')
+        cards.forEach(c => {
+          let el = document.getElementById(c.toString());
+          el.style.border = '';
+          el.style.margin = '0';
+        })
       }
     }
   }

@@ -34,15 +34,15 @@ export class FoundationComponent implements OnInit {
         card: card,
         stockPile: this.foundation,
         wasDblClicked: false
-       });
+      });
     }
   }
 
   highlightCard(card: Card, isHighlighted: boolean) {
-    let cardElement = document.getElementById(card.toString());
-
     if(card) {
-      cardElement.style.border = isHighlighted ? 'solid 2px blue' : '';
+      let el = document.getElementById(card.toString());
+      el.style.margin = isHighlighted ? '-1px 0px 0px -1px' : '0px';
+      el.style.border = isHighlighted ? 'solid 2px blue' : '';
     }
   }
 }

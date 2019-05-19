@@ -5,6 +5,7 @@
     border-radius: 9px;
     display: flex;
     flex-direction: column;
+    justify-items: center;
     border: solid 1px lavender;
     padding-left: -5;
     cursor: pointer;
