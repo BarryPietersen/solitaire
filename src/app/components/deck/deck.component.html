@@ -1,4 +1,4 @@
-<div class="deckBase" (click)="baseClicked()">
+<div class="deckBase noSelect" (click)="baseClicked()">
     <app-card *ngIf="deck.stock.length > 0"
         [card]="deck.stock[deck.stock.length - 1]"
         (clicked)="cardClicked($event)">
